@@ -1,0 +1,66 @@
+.try-full {
+    background-color: #043873;
+}
+
+
+.fullPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    
+
+}
+
+.h1{
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.p1{
+    text-align: center;
+    font-size: 18px;
+
+}
+
+.p2 {
+    text-align: center;
+    font-size: 18px;
+}
+.p3 {
+    font-size: 18px;
+}
+
+.loogo{
+     display: flex;
+     gap: 20px;
+     justify-content: center;
+     margin-top: 20px;
+
+}
+
+.bbttnn{
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: #4f9cf9;
+    display: flex;
+    color: white;
+}
+ 
+.bbttnn {
+  display: block;
+  margin: 20px auto; 
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+.left-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headingg {
+  width: 50%;
+}
+
+.bbtn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #4F9CF9;
+  color: white;
+  margin-top: 20px;
+}
+
+.imagee {
+  width: 50%;
+  margin: 30px;
+}
+
+.imagee img {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+

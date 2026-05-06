@@ -1,0 +1,53 @@
+.upper-section {
+    /* background-color: #043873; */
+    padding: 60px 0;
+}
+
+.container{
+    padding-left: 20px;
+    padding-right: 20PX;
+}
+
+ .project-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+} 
+
+
+.head11{
+    font-size: 48px;
+    margin-bottom: 20px;
+    
+}
+
+.head-22 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #4f9cf9;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.project-lower{
+    display: flex;
+    gap: 50px;
+}
+
+.right img{
+    width:400px;
+}
+.left img {
+    width: 400px;
+    
+}
+
+

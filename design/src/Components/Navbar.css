@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+
+.nav-bar {
+  background-color: #043873;
+  padding: 20px 0;
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* menu */
+.chak-lo {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.chak-lo li {
+  cursor: pointer;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.buttons button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+
+.btn-1 {
+  background-color: #FFE492;
+}
+
+.btn-2 {
+  background-color: #4f9cf9;
+  color: white;
+}
+
+
+
+
+

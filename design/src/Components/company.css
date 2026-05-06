@@ -1,0 +1,50 @@
+.fuLLContent{
+  background-color: #043873;
+  padding: 60px 0;
+
+}
+
+.section-101{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #FFFFFF;
+    /* margin-left: 150px; */
+
+}
+
+
+.cardds {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+} 
+
+.cardds ul {
+     list-style: none;
+     margin-top: 10px;
+}
+
+.parra{
+    margin-top: 10px;
+}
+
+
+.bbttn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #4F9CF9;
+    color: white;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+

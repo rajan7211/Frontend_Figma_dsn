@@ -1,0 +1,60 @@
+
+.hero {
+  background-color: #043873;
+  padding: 60px 0;
+}
+
+
+.container {
+  /* background-color: red; */
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.hero-left {
+  max-width: 500px;
+}
+
+.Heading {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.Heading-2 {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #cbd5e1;
+}
+
+.buttn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #4f9cf9;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.poster1 img {
+  width: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

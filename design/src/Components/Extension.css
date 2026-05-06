@@ -1,0 +1,61 @@
+.uper-Section {
+    background-color: #043873;
+    padding: 60px 0;
+}
+
+
+.Extension-Content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Lower-Section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+.btnn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #4f9cf9;
+    color: white;
+    cursor: pointer;
+
+
+}
+
+.Lower-Section {
+    background-color:#ffffff;
+    color: black;
+    padding: 60px 0;
+}
+
+
+
+.left img {
+    width: 400px;
+    
+}
+
+.head-2{
+    color: white;
+}
+
+.btnn2 {
+     padding: 10px 20px;
+     margin-top: 10px;
+     border-radius: 10px;
+     background-color: #4f9cf9;
+     color: white;
+}
+
+.head {
+    color: red;
+}
+
+
+

@@ -1,0 +1,34 @@
+.back-button {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
+
+.resources-page,
+.pricing-page,
+.solutions-page,
+.demands-page {
+  min-height: 75vh;
+}
+
+
+
+
+
+
+

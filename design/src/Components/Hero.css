@@ -1,15 +1,13 @@
-
 .hero {
   background-color: #043873;
   padding: 60px 0;
 }
 
-
 .container {
-  /* background-color: red; */
   max-width: 1200px;
   margin: auto;
   width: 100%;
+  padding: 0 20px;
 }
 
 .hero-content {
@@ -17,6 +15,7 @@
   justify-content: space-between;
   align-items: center;
   color: white;
+  gap: 40px;
 }
 
 .hero-left {
@@ -26,12 +25,14 @@
 .Heading {
   font-size: 48px;
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .Heading-2 {
   font-size: 16px;
   margin-bottom: 30px;
   color: #cbd5e1;
+  line-height: 1.6;
 }
 
 .buttn {
@@ -41,12 +42,78 @@
   color: white;
   border: none;
   cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.buttn:hover {
+  background-color: #3a86e8;
+  transform: translateY(-2px);
 }
 
 .poster1 img {
   width: 400px;
+  max-width: 100%;
+  height: auto;
 }
 
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px) {
+  .Heading {
+    font-size: 40px;
+  }
+  
+  .poster1 img {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-left {
+    max-width: 100%;
+  }
+  
+  .Heading {
+    font-size: 36px;
+  }
+  
+  .Heading-2 {
+    font-size: 15px;
+  }
+  
+  .poster1 img {
+    width: 300px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 0;
+  }
+  
+  .Heading {
+    font-size: 28px;
+  }
+  
+  .Heading-2 {
+    font-size: 14px;
+  }
+  
+  .buttn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .poster1 img {
+    width: 250px;
+  }
+}
 
 
 

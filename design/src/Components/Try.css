@@ -1,61 +1,123 @@
 .try-full {
-    background-color: #043873;
+  background-color: #043873;
 }
 
+.container {
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+  padding: 0 20px;
+}
 
 .fullPage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    color: white;
-    
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
 }
 
-.h1{
-    margin-bottom: 20px;
-    text-align: center;
-
+.h1 {
+  margin-bottom: 20px;
+  font-size: 40px;
+  line-height: 1.2;
 }
 
-.p1{
-    text-align: center;
-    font-size: 18px;
-
+.p1,
+.p3 {
+  text-align: center;
+  font-size: 18px;
+  color: #cbd5e1;
+  margin: 10px 0;
+  line-height: 1.6;
 }
 
 .p2 {
-    text-align: center;
-    font-size: 18px;
-}
-.p3 {
-    font-size: 18px;
-}
-
-.loogo{
-     display: flex;
-     gap: 20px;
-     justify-content: center;
-     margin-top: 20px;
-
+  text-align: center;
+  font-size: 16px;
+  color: #cbd5e1;
+  margin-top: 30px;
 }
 
-.bbttnn{
-    padding: 10px 10px;
-    border-radius: 10px;
-    background-color: #4f9cf9;
-    display: flex;
-    color: white;
+.loogo {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
- 
+
+.loogo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
 .bbttnn {
+  padding: 12px 30px;
+  border-radius: 10px;
+  background-color: #4f9cf9;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px auto;
   display: block;
-  margin: 20px auto; 
+  transition: all 0.3s ease;
 }
 
+.bbttnn:hover {
+  background-color: #3a86e8;
+  transform: translateY(-2px);
+}
 
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 36px;
+  }
+  
+  .p1,
+  .p3 {
+    font-size: 16px;
+  }
+}
 
+@media (max-width: 480px) {
+  .fullPage {
+    padding: 40px 15px;
+  }
+  
+  .h1 {
+    font-size: 28px;
+  }
+  
+  .p1,
+  .p3 {
+    font-size: 14px;
+  }
+  
+  .p2 {
+    font-size: 14px;
+  }
+  
+  .bbttnn {
+    padding: 10px 25px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .loogo {
+    gap: 15px;
+  }
+  
+  .loogo img {
+    width: 35px;
+    height: 35px;
+  }
+}
 
 
 

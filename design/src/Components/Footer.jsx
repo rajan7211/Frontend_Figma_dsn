@@ -10,10 +10,6 @@ function Footer () {
            <h4>Security</h4>
            <h4>Status</h4>
            <h4>©2021 Whitepace LLC.</h4>
-           
-           <div className='pht'>
-            <img src="/Social Icon.png" alt="img" />
-           </div>
         </div>
     </div>
    </div>

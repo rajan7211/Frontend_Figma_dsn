@@ -1,8 +1,12 @@
 import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+
+// Home Page Components
 import Hero from "./Components/Hero";
 import Project from "./Components/Project";
 import Extension from "./Components/Extension";
-import Pricing from "./Components/Pricing";
 import Work from "./Components/Work";
 import Data from "./Components/Data";
 import Sponser from "./Components/Sponser";
@@ -10,40 +14,101 @@ import Whitepace from "./Components/Whitepace";
 import Client from "./Components/Client";
 import Try from "./Components/Try";
 import Company from "./Components/Company";
-import Footer from "./Components/Footer";
 
+import Resources from "./pages/Resources";
+import Pricingg from "./pages/Pricingg";
+import Solutions from "./pages/Solutions";
+import Demands from "./pages/Demands";
 
-
-
-// import './Components/Work.css'
-// import './Components/Pricing.css'
-// import './Components/Extension.css'
-// import './Components/Project.css'
-// import './Components/Navbar.css'
-// import './Components/Hero.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react"; 
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-      <Hero/>
-      <Project/>
-      <Extension/>
-      <Pricing/>
-      <Work/>
-      <Data/>
-      <Sponser/>
-      <Whitepace/>
-      <Client/>
-      <Try/>
-      <Company/>
-      <Footer/>
+  //  State ko directly initialize karo localStorage se
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem('isLoggedIn') === 'true';
+  });
+  
+  const [userName, setUserName] = useState(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user ? user.name : '';
+  });
 
-    </div>
+  // Login successful hone par ye function chalega
+  const handleLogin = (name) => {
+    setIsLoggedIn(true);
+    setUserName(name);
+  };
+
+  // Logout function
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserName('');
+    localStorage.removeItem('isLoggedIn');
+  };
+
+  return (
+    <BrowserRouter>
+      <Navbar isLoggedIn={isLoggedIn} userName={userName} onLogout={handleLogout} />
+      
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <Project />
+            <Extension />
+            <Work />
+            <Data />
+            <Sponser />
+            <Whitepace />
+            <Client />
+            <Try />
+            <Company />
+            <Footer />
+          </>
+        } />
+
+        <Route path="/login" element={
+          <>
+            <Login onLogin={handleLogin} />
+            <Footer />
+          </>
+        } />
+
+        <Route path="/register" element={
+          <>
+            <Register />
+            <Footer />
+          </>
+        } />
+
+        <Route path="/resources" element={<> <Resources /> <Footer /> </>} />
+        <Route path="/pricing" element={<> <Pricingg /> <Footer /> </>} />
+        <Route path="/solutions" element={<> <Solutions /> <Footer /> </>} />
+        <Route path="/demands" element={<> <Demands /> <Footer /> </>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

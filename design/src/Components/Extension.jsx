@@ -6,7 +6,7 @@ function Extension() {
       <div className="container">
         <div className="Extension-Content">
           <div className="left">
-            <h1 className="head">Use as Extension</h1>
+            <h1 className="head102">Use as Extension</h1>
             <p className="head-2">
               Use the web clipper extension, available on Chrome and Firefox, to
               save web pages or take screenshots as notes.
@@ -14,7 +14,7 @@ function Extension() {
             <button className="btnn">Let's Go</button>
           </div>
           <div className="right">
-            <img src="/photo2.png" alt="Image" />
+            <img src="/photo22.png" alt="Image" />
           </div>
         </div>
 
@@ -23,8 +23,8 @@ function Extension() {
             <img src="/photo1.png" alt="image" />
           </div>
           <div className="right">
-            <h1 className="headd">Customise it to your needs</h1>
-            <p className="head-22">
+            <h1 className="headddd">Customise it to your needs</h1>
+            <p className="head-222">
               Customise the app with plugins, custom themes and multiple text
               editors (Rich Text or Markdown). Or create your own scripts and
               plugins using the Extension API.
@@ -38,3 +38,18 @@ function Extension() {
 }
 
 export default Extension;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

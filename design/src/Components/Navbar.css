@@ -52,17 +52,6 @@
   color: #FFE492;
 }
 
-.chak-lo a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #FFE492;
-  transition: width 0.3s ease;
-}
-
 .chak-lo a:hover::after {
   width: 100%;
 }
@@ -128,7 +117,7 @@
   border-radius: 20px;
 }
 
-/* ========== RESPONSIVE ========== */
+
 @media (max-width: 992px) {
   .chak-lo {
     gap: 20px;
@@ -203,9 +192,130 @@
 
 
 
+.user-profile {
+  display:  flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-icon {
+  font-size: 25px;
+  color: white;
+}
+
+.user-name {
+  color : white;
+  font-weight: 600;;
+}
 
 
 
+.user-profile{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
 
+.user-icon{
+  font-size: 32px;
+  color: white;
+}
+
+.user-name{
+  color: white;
+  font-weight: 600;
+}
+
+/* PROFILE MODAL */
+
+.profile-modal{
+  position: absolute;
+
+  top: 75px;
+  right: 20px;
+
+  width: 280px;
+
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 20px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  z-index: 1000;
+
+  animation: popup 0.3s ease;
+}
+
+/* HEADER */
+
+.profile-header{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+/* ICON */
+
+.modal-icon{
+  font-size: 55px;
+  color: #333;
+}
+
+/* TEXT */
+
+.profile-header h3{
+  margin: 0;
+  font-size: 18px;
+  color: #222;
+}
+
+.profile-header p{
+  margin-top: 5px;
+  color: gray;
+  font-size: 14px;
+}
+
+/* BUTTON */
+
+.profile-logout-btn{
+  width: 100%;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: black;
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+}
+
+
+
+@keyframes popup{
+
+  from{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 

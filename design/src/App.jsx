@@ -19,19 +19,21 @@ import Resources from "./pages/Resources";
 import Pricingg from "./pages/Pricingg";
 import Solutions from "./pages/Solutions";
 import Demands from "./pages/Demands";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react"; 
+import { useState } from "react";
 
 function App() {
-  //  State ko directly initialize karo localStorage se
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    return localStorage.getItem('isLoggedIn') === 'true';
+    return localStorage.getItem("isLoggedIn") === "true";
   });
-  
+
   const [userName, setUserName] = useState(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user ? user.name : '';
+    const user = JSON.parse(localStorage.getItem("user"));
+    return user ? user.name : "";
   });
 
   // Login successful hone par ye function chalega
@@ -43,67 +45,109 @@ function App() {
   // Logout function
   const handleLogout = () => {
     setIsLoggedIn(false);
-    setUserName('');
-    localStorage.removeItem('isLoggedIn');
+    setUserName("");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem('token');
+    localStorage.removeItem('currentUser');
   };
+
 
   return (
     <BrowserRouter>
-      <Navbar isLoggedIn={isLoggedIn} userName={userName} onLogout={handleLogout} />
-      
+      <Navbar
+        isLoggedIn={isLoggedIn}
+        userName={userName}
+        onLogout={handleLogout}
+      />
       <Routes>
-        <Route path="/" element={
-          <>
-            <Hero />
-            <Project />
-            <Extension />
-            <Work />
-            <Data />
-            <Sponser />
-            <Whitepace />
-            <Client />
-            <Try />
-            <Company />
-            <Footer />
-          </>
-        } />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <>
+                <Hero />
+                <Project />
+                <Extension />
+                <Work />
+                <Data />
+                <Sponser />
+                <Whitepace />
+                <Client />
+                <Try />
+                <Company />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/login" element={
-          <>
-            <Login onLogin={handleLogin} />
-            <Footer />
-          </>
-        } />
+        <Route
+          path="/login"
+          element={
+            <>
+              <Login onLogin={handleLogin} />
+              <Footer />
+            </>
+          }
+        />
 
-        <Route path="/register" element={
-          <>
-            <Register />
-            <Footer />
-          </>
-        } />
+        <Route
+          path="/register"
+          element={
+            <>
+              <Register />
+              <Footer />
+            </>
+          }
+        />
 
-        <Route path="/resources" element={<> <Resources /> <Footer /> </>} />
-        <Route path="/pricing" element={<> <Pricingg /> <Footer /> </>} />
-        <Route path="/solutions" element={<> <Solutions /> <Footer /> </>} />
-        <Route path="/demands" element={<> <Demands /> <Footer /> </>} />
+        <Route
+          path="/resources"
+          element={
+            <>
+              {" "}
+              <Resources /> <Footer />{" "}
+            </>
+          }
+        />
+        <Route
+          path="/pricing"
+          element={
+            <>
+              {" "}
+              <Pricingg /> <Footer />{" "}
+            </>
+          }
+        />
+        <Route
+          path="/solutions"
+          element={
+            <>
+              {" "}
+              <Solutions /> <Footer />{" "}
+            </>
+          }
+        />
+        <Route
+          path="/demands"
+          element={
+            <>
+              {" "}
+              <Demands /> <Footer />{" "}
+            </>
+          }
+        />
       </Routes>
+      <ToastContainer 
+      position="top-right"
+      autoClose={2000}
+      theme="dark"
+      />
     </BrowserRouter>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

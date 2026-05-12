@@ -1,35 +1,31 @@
-// ==========================
-// LOGIN.JSX
-// ==========================
-
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
-import './Auth.css';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import "./Auth.css";
 
 function Login({ onLogin }) {
-
+  // FORM DATA
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
+  // ERRORS
   const [errors, setErrors] = useState({});
 
+  // MESSAGE
   const [message, setMessage] = useState({
-    text: '',
-    type: '',
+    text: "",
+    type: "",
   });
 
+  // LOADING
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
-
-
-  // INPUT CHANGE
+  // HANDLE CHANGE
   const handleChange = (e) => {
-
     const { name, value } = e.target;
 
     setFormData({
@@ -37,52 +33,40 @@ function Login({ onLogin }) {
       [name]: value,
     });
 
+    // REMOVE ERROR WHEN USER TYPES
     if (errors[name]) {
-
       setErrors({
         ...errors,
-        [name]: '',
+        [name]: "",
       });
     }
   };
 
-
-
-  // LOGIN FUNCTION
+  // HANDLE LOGIN
   const handleLogin = async (e) => {
-
     e.preventDefault();
 
     setIsLoading(true);
 
     setMessage({
-      text: '',
-      type: '',
+      text: "",
+      type: "",
     });
 
     const newErrors = {};
 
-
-
-    // USERNAME VALIDATION
-    if (!formData.username.trim()) {
-
-      newErrors.username = 'Username is required';
+    // EMAIL VALIDATION
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
     }
-
-
 
     // PASSWORD VALIDATION
     if (!formData.password) {
-
-      newErrors.password = 'Password is required';
+      newErrors.password = "Password is required";
     }
 
-
-
-    // STOP IF ERRORS
+    // SHOW ERRORS
     if (Object.keys(newErrors).length > 0) {
-
       setErrors(newErrors);
 
       setIsLoading(false);
@@ -90,193 +74,120 @@ function Login({ onLogin }) {
       return;
     }
 
-
-
     try {
+      // DUMMY API
+      await axios.post("https://dummyjson.com/auth/login", {
+        username: formData.email,
 
-      // LOGIN API
-      const response = await axios.post(
-        'https://dummyjson.com/auth/login',
-        {
-          username: formData.username,
-          password: formData.password,
-        }
-      );
-
-
-
-      console.log(response.data);
-
-
-
-      // SAVE TOKEN
-      localStorage.setItem(
-        'token',
-        response.data.accessToken
-      );
-
-
-
-      localStorage.setItem(
-        'isLoggedIn',
-        'true'
-      );
-
-
-
-      // SUCCESS
-      setMessage({
-        text: 'Login Successful!',
-        type: 'success',
+        password: formData.password,
       });
+    } catch (err) {
+      console.log("API ignored");
+    }
 
+    // GET USER FROM LOCAL STORAGE
+    const storedUser = JSON.parse(localStorage.getItem("user"));
 
+    // CHECK LOGIN
+    if (
+      storedUser &&
+      storedUser.email === formData.email &&
+      storedUser.password === formData.password
+    ) {
+      // SAVE LOGIN STATE
+      localStorage.setItem("isLoggedIn", "true");
+
+      localStorage.setItem("token", "dummy-token");
+
+      localStorage.setItem("currentUser", JSON.stringify(storedUser));
+
+      // SUCCESS MESSAGE
+      setMessage({
+        text: "Login Successful!",
+        type: "success",
+      });
 
       // REDIRECT
       setTimeout(() => {
+        onLogin(storedUser.name);
 
-        onLogin(response.data.firstName);
-
-        navigate('/');
-
-      }, 1500);
-
-    } catch (error) {
-
-      console.log(error);
-
+        navigate("/");
+      }, 2000);
+    } else {
+      // INVALID MESSAGE
       setMessage({
-        text: 'Invalid Credentials!',
-        type: 'error',
+        text: "Invalid Credentials!",
+        type: "error",
       });
-
-    } finally {
-
-      setIsLoading(false);
     }
+
+    setIsLoading(false);
   };
-
-
 
   return (
     <div className="auth-wrapper">
-
       <div className="auth-container">
-
+        {/* HEADER */}
         <div className="auth-header">
-          <h2>Welcome Back!</h2>
-          <p>Login to access your account</p>
+          <h2>Welcome Back</h2>
+
+          <p>Login to continue</p>
         </div>
 
-
-
-        <form
-          onSubmit={handleLogin}
-          className="auth-form"
-        >
-
-          {/* USERNAME */}
+        {/* FORM */}
+        <form onSubmit={handleLogin} className="auth-form">
+          {/* EMAIL */}
           <div className="form-group">
-
-            <label>Username</label>
+            <label>Email</label>
 
             <input
-              type="text"
-              name="username"
-              placeholder="Enter username"
-              value={formData.username}
+              type="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               disabled={isLoading}
             />
 
-            {errors.username && (
-              <span className="error-text">
-                {errors.username}
-              </span>
-            )}
-
+            {errors.email && <span className="error-text">{errors.email}</span>}
           </div>
-
-
 
           {/* PASSWORD */}
           <div className="form-group">
-
             <label>Password</label>
 
             <input
               type="password"
               name="password"
-              placeholder="Enter password"
               value={formData.password}
               onChange={handleChange}
               disabled={isLoading}
             />
 
             {errors.password && (
-              <span className="error-text">
-                {errors.password}
-              </span>
+              <span className="error-text">{errors.password}</span>
             )}
-
           </div>
 
-
-
           {/* BUTTON */}
-          <button
-            type="submit"
-            className="auth-btn"
-            disabled={isLoading}
-          >
-
-            {isLoading
-              ? 'Logging in...'
-              : 'Login'}
-
+          <button className="auth-btn" disabled={isLoading}>
+            {isLoading ? "Logging in..." : "Login"}
           </button>
-
         </form>
-
-
 
         {/* MESSAGE */}
         {message.text && (
-
-          <div className={`message ${message.type}`}>
-            {message.text}
-          </div>
-
+          <div className={`message ${message.type}`}>{message.text}</div>
         )}
 
-
-
+        {/* FOOTER */}
         <div className="auth-footer">
-
           <p>
-            Don't have an account?
-
-            <Link to="/register">
-              Register here
-            </Link>
-
+            No account? <Link to="/register">Register</Link>
           </p>
-
         </div>
-
       </div>
     </div>
   );
 }
 
 export default Login;
-
-
-
-
-
-
-
-
-
-

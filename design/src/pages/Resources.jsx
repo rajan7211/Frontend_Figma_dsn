@@ -11,28 +11,32 @@ function Resources() {
       email: "",
       message: "",
     },
-    validationSchema: yup.object({
-      fullName: yup.string()
-        .min(3, "minimum 3 character")
-        .required("full name is required"),
 
-      email: yup.string()
-        .email("invalid email address")
+    validationSchema: yup.object({
+      fullName: yup
+        .string()
+        .min(3, "Minimum 3 characters required")
+        .required("Full name is required"),
+
+      email: yup
+        .string()
+        .email("Invalid email address")
         .required("Email is required"),
 
-      message: yup.string()
-        .min(10, "message must be at least 10 charater")
-        .required("message is required"),
+      message: yup
+        .string()
+        .min(10, "Message must be at least 10 characters")
+        .required("Message is required"),
     }),
 
     onSubmit: (values, { resetForm }) => {
       console.log(values);
 
-      (toast.success("form submitted successfullty!"),
-        {
-          position: "top-right",
-          autoClose: 2000,
-        });
+      toast.success("Form submitted successfully!", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+
       resetForm();
     },
   });
@@ -44,10 +48,14 @@ function Resources() {
           Back to Home
         </Link>
       </div>
+
       <h1>Welcome to Resource Page</h1>
+
       <form onSubmit={formik.handleSubmit} className="resource-form">
+        
+        {/* FULL NAME */}
         <div className="form-group">
-          <label> Full Name</label>
+          <label>Full Name</label>
 
           <input
             type="text"
@@ -57,19 +65,20 @@ function Resources() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.fullName && 
-          formik.errors.fullName && (
+
+          {formik.touched.fullName && formik.errors.fullName && (
             <p className="error-text">
               {formik.errors.fullName}
-              </p>
+            </p>
           )}
         </div>
 
+        {/* EMAIL */}
         <div className="form-group">
           <label>Email</label>
 
           <input
-            type="text"
+            type="email"
             name="email"
             placeholder="Enter your email"
             value={formik.values.email}
@@ -78,10 +87,13 @@ function Resources() {
           />
 
           {formik.touched.email && formik.errors.email && (
-            <P className="error-text">{formik.errors.email}</P>
+            <p className="error-text">
+              {formik.errors.email}
+            </p>
           )}
         </div>
 
+        {/* MESSAGE */}
         <div className="form-group">
           <label>Message</label>
 
@@ -91,12 +103,16 @@ function Resources() {
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-          ></textarea>
+          />
+
           {formik.touched.message && formik.errors.message && (
-            <p className="error-text">{formik.errors.message}</p>
+            <p className="error-text">
+              {formik.errors.message}
+            </p>
           )}
         </div>
 
+        {/* BUTTON */}
         <button type="submit" className="submit-btn">
           Submit
         </button>
@@ -106,20 +122,6 @@ function Resources() {
 }
 
 export default Resources;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
